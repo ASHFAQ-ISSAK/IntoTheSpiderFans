@@ -7,8 +7,11 @@ name = "pypi"
 flask = "*"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
+flask-restful = "*"
 pytest = "*"
 faker = "*"
+werkzeug = "*"
+
 [dev-packages]
 
 [requires]
