@@ -1,149 +1,56 @@
-Flask RESTful API with SQLAlchemy
-This is a simple Flask RESTful API that allows you to manage user data using SQLAlchemy for database interaction. It provides endpoints for creating, updating, retrieving, and deleting users.
+Flask User Management API
 
+Introduction
+This project is a Flask-based API for user management. It provides endpoints to create, retrieve, update, and delete user records in a SQLite database. It utilizes Flask-Restful for creating RESTful APIs and Flask-SQLAlchemy for database management.
+
+Features
+User Registration: Users can create new accounts by providing a username, email, and password.
+User Authentication: Passwords are securely hashed and stored in the database. Users can authenticate themselves by providing their credentials.
+User Retrieval: Retrieve information about a specific user by their user ID.
+User Update: Update user details such as username and email.
+User Deletion: Delete a user from the database.
 Prerequisites
-Python 3.x
+Python 3.7 or higher
 Flask
-Flask-RESTful
+Flask-Restful
 Flask-SQLAlchemy
-Flask-Migrate
 Werkzeug
 Installation
 Clone the repository:
 
-`git clone https://github.com/your-username/your-repository.git`
+bash
+Copy code
+git clone https://github.com/your-username/your-repository.git
 Navigate to the project directory:
-``
 
-`cd your-repository`
-Install the required dependencies:
+bash
+Copy code
+cd your-repository
+Install the required packages:
 
-`pip install -r requirements.txt`
-Usage
+bash
+Copy code
+pip install -r requirements.txt
+Set up the database:
+
+bash
+Copy code
+flask db init
+flask db migrate
+flask db upgrade
 Start the application:
 
-`python app.py`
+bash
+Copy code
+flask run
 The API will be accessible at http://localhost:5000.
-Endpoints
-GET /users
-Description: Get a list of all users.
-Response: JSON object containing an array of user objects.
-Example Response:
-json
 
-[
-{
-"id": 1,
-"username": "john_doe",
-"email": "john@example.com"
-},
-{
-"id": 2,
-"username": "jane_smith",
-"email": "jane@example.com"
-}
-]
-
-```
-POST /users
-Description: Create a new user.
-Request Body: JSON object containing the following properties:
-username (string): The username of the user.
-email (string): The email address of the user.
-password (string): The password of the user.
-Example Request Body:
-json
-
-
-
-{
-  "username": "john_doe",
-  "email": "john@example.com",
-  "password": "password123"
-}
-Response: JSON object with a success message.
-Example Response:
-json
-
-
-
-{
-  "message": "User created successfully"
-}
-GET /users/{user_id}
-Description: Get information about a specific user.
-Path Parameter: user_id (integer): The ID of the user.
-Response: JSON object containing the user's information.
-Example Response:
-json
-
-
-{
-  "id": 1,
-  "username": "john_doe",
-  "email": "john@example.com"
-}
-PUT /users/{user_id}
-Description: Update the details of a specific user.
-Path Parameter: user_id (integer): The ID of the user.
-Request Body: JSON object containing the properties to be updated:
-username (string, optional): The new username of the user.
-email (string, optional): The new email address of the user.
-Example Request Body:
-json
-
-
-{
-  "username": "new_username",
-  "email": "new_email@example.com"
-}
-Response: JSON object with a success message.
-Example Response:
-json
-
-
-
-{
-  "message": "User updated successfully"
-}
-PATCH /users/{user_id}
-Description: Update specific details of a user.
-Path Parameter: user_id (integer): The ID of the user.
-Request Body: JSON object containing the properties to be updated:
-username (string, optional): The new username of the user.
-email (string, optional): The new email address of the user.
-password (string, optional): The new password of the user.
-Example Request Body:
-json
-
-
-
-{
-  "username": "new_username",
-  "password": "new_password"
-}
-Response: JSON object with a success message.
-Example Response:
-json
-
-
-
-{
-  "message": "User updated successfully"
-}
-DELETE /users/{user_id}
-Description: Delete a specific user.
-Path Parameter: user_id (integer): The ID of the user.
-Response: JSON object with a success message.
-Example Response:
-json
-
-
-
-{
-  "message": "User deleted successfully"
-}
+API Endpoints
+POST /users: Create a new user.
+GET /users: Retrieve all users.
+GET /users/<int:user_id>: Retrieve a specific user.
+PUT /users/<int:user_id>: Update a specific user.
+PATCH /users/<int:user_id>: Partially update a specific user.
+DELETE /users/<int:user_id>: Delete a specific user.
 License
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-```
+This project is licensed under the MIT License.
