@@ -18,30 +18,20 @@ Werkzeug
 Installation
 Clone the repository:
 
-bash
-Copy code
 git clone https://github.com/your-username/your-repository.git
 Navigate to the project directory:
 
-bash
-Copy code
 cd your-repository
 Install the required packages:
 
-bash
-Copy code
 pip install -r requirements.txt
 Set up the database:
 
-bash
-Copy code
 flask db init
 flask db migrate
 flask db upgrade
 Start the application:
 
-bash
-Copy code
 flask run
 The API will be accessible at http://localhost:5000.
 
